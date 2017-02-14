@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Windows.Forms;
 using Akka.Actor;
 using GithubActors.Actors;
@@ -31,6 +32,18 @@ namespace GithubActors
         private void LauncherForm_FormClosing(object sender, FormClosingEventArgs e)
         {
             Application.Exit();
+        }
+
+        private void tbRepoUrl_Clicked(object sender, EventArgs e)
+        {
+            var repos = new List<string>
+            {
+                "https://github.com/akkadotnet/akka.net",
+                "https://github.com/myconstellation/constellation-packages",
+                "https://github.com/boxbilling/extensions"
+            };
+            var rnd = new Random(BitConverter.ToInt32(Guid.NewGuid().ToByteArray(), 0));
+            tbRepoUrl.Text = repos[rnd.Next(repos.Count)];
         }
     }
 }
