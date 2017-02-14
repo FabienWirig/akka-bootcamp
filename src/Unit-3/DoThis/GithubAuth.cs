@@ -20,6 +20,7 @@ namespace GithubActors
         public GithubAuth()
         {
             InitializeComponent();
+            tbOAuth.Text = "";
         }
 
         private void GithubAuth_Load(object sender, EventArgs e)
